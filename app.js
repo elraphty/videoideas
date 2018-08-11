@@ -1,5 +1,3 @@
-'use strict';
-
 require('./config/config');
 
 global.MONGODB_URI = process.env.MONGODB_URI;
@@ -15,7 +13,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 
-let PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT;
 
 // EJS MIDDLEWARE
 app.set('views', path.join(__dirname, 'views'));
