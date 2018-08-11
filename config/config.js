@@ -9,3 +9,4 @@ if (env === 'development' || env === 'test') {
   });
 
 }
+//"MONGODB_URI": "mongodb://localhost:27017/videoIdea",
