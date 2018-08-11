@@ -1,0 +1,16 @@
+{
+    "test": {
+      "PORT": 8000,
+      "MONGODB_URI": "mongodb://localhost:27017/TodoAppTest",
+      "JWT_SECRET": "poijasdf98435jpgfdpoij3"
+    },
+    "development": {
+      "PORT": 8000,
+      "MONGODB_URI": "mongodb://localhost:27017/videoIdea",
+      "JWT_SECRET": "pojiaj234oi234oij234oij4"
+    },
+    "production": {
+      "MONGODB_URI": "mongodb://elraphty:Elraphty1@ds139949.mlab.com:39949/videoideas"
+    }
+  }
+  
