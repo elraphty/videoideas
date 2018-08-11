@@ -1,0 +1,23 @@
+<% include ../partials/header.ejs %>
+<h3>Ideas</h3>
+<hr/>
+
+<% include ../partials/msg.ejs %>
+
+<% if(ideas.length > 0){ %>
+<% ideas.forEach(function(idea){%>
+  <div class="card card-body mb-2">
+  <h4><%= idea.title %></h4>
+  <p><%= idea.details %></p>
+  <a class="btn btn-dark" href="/ideas/edit/<%= idea._id %>">Edit <i class="fa fa-pencil"></i></a>
+  <form method="post" action="/ideas/delete/<%= idea._id %>?_method=DELETE">
+      <input type="hidden" name="_method" value="DELETE">
+      <button onclick="return confirm('Do you want to delete this idea?, deleting is irrevocable')" type="submit" class="btn btn-danger btn-block">Delete <i class="fa fa-trash"></i></button>
+  </form>
+  </div>
+<% }); %>
+<% }else{ %>
+  <p>No video ideas listed</p>
+<% } %>
+
+<% include ../partials/footer.ejs %>
