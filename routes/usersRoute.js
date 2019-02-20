@@ -55,7 +55,7 @@ router.post('/login', passport.authenticate('local', {
     failureFlash: true,
 }),
     (req, res, next) => {
-        req.flash('success_msg','You are now logged in');
+        req.flash('success_msg', 'You are now logged in');
         res.redirect('/ideas');
     }
 );
@@ -66,12 +66,12 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (id, done) {
     User.getUserById(id)
-      .then(user => {
-        done(null, user);
-      })
-      .catch(err => {
-        done(err, null);
-      });
+        .then(user => {
+            done(null, user);
+        })
+        .catch(err => {
+            done(err, null);
+        });
 });
 
 passport.use(new localStrategy({ usernameField: 'email' }, (email, password, done) => {

@@ -23,23 +23,23 @@ const usersSchema = new Schema({
     }
 });
 
-usersSchema.statics.getUserByUsername = function(email){
+usersSchema.statics.getUserByUsername = function (email) {
     var User = this;
-    return User.findOne({email});
+    return User.findOne({ email });
 }
 
-usersSchema.statics.comparePassword = function(password, hash){
-    return bcrypt.compare(password,hash);
+usersSchema.statics.comparePassword = function (password, hash) {
+    return bcrypt.compare(password, hash);
 }
 
-usersSchema.statics.getUserById = function(id){
+usersSchema.statics.getUserById = function (id) {
     let User = this;
     return User.findById(id);
 }
 
 //Mongoose middleware
 usersSchema.pre('save', function (next) {
-    let  User = this;
+    let User = this;
 
     if (User.isModified('password')) {
         bcrypt.genSalt(10, (err, salt) => {
